@@ -14,7 +14,11 @@ class App extends Component {
 
   addTask(newTask) {
     const { tasks } = this.state;
-    this.setState({ tasks: [...tasks, newTask] });
+    const checkTitle = newTask.title.match(/[a-z]|[A-Z]/g);
+
+    if (newTask.id > 0 && checkTitle !== null) {
+      this.setState({ tasks: [...tasks, newTask] });
+    }
   }
 
   render() {
