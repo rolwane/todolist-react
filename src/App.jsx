@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+
+// imported components
 import FormTask from './components/FormTask';
+import Task from './components/Task';
 
 class App extends Component {
   constructor() {
@@ -15,7 +18,16 @@ class App extends Component {
   }
 
   render() {
-    return <FormTask onAdd={this.addTask} />;
+    const { tasks } = this.state;
+
+    return (
+      <div className="box">
+        <FormTask onAdd={this.addTask} />
+        <ol className="list">
+          {tasks.map((task) => <Task title={task.title} key={task.id} />)}
+        </ol>
+      </div>
+    );
   }
 }
 
