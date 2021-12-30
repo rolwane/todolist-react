@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import idGenerator from '../../lib/idGenerator';
 
 class FormTask extends Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = { id: null, title: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange({ target }) {
+    this.setState({ id: idGenerator(), title: target.value });
+  }
+
+  handleSubmit(e, callback) {
+    e.preventDefault();
+    callback(this.state);
+    this.setState({ id: null, title: '' });
   }
 
   render() {
-    return <h1>Hello, World!</h1>;
+    const { title } = this.state;
+    const { onAdd } = this.props;
+
+    return (
+      <form onSubmit={(e) => this.handleSubmit(e, onAdd)}>
+        <input type="text" value={title} onChange={this.handleChange} />
+        <button type="submit">Add Task</button>
+      </form>
+    );
   }
 }
 
 export default FormTask;
+
+FormTask.propTypes = {
+  onAddTask: PropTypes.func,
+}.isRequired;
