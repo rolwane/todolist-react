@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import FormTask from './components/FormTask';
 
-class App extends Component {
+class FormTask extends Component {
   constructor() {
     super();
 
@@ -9,8 +8,8 @@ class App extends Component {
   }
 
   render() {
-    return <FormTask />;
+    return <h1>Hello, World!</h1>;
   }
 }
 
-export default App;
+export default FormTask;
