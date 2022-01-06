@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 // imported components
 import FormTask from './components/FormTask';
@@ -10,6 +11,7 @@ class App extends Component {
 
     this.state = { tasks: [] };
     this.addTask = this.addTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
   }
 
   addTask(newTask) {
@@ -21,6 +23,13 @@ class App extends Component {
     }
   }
 
+  removeTask(id) {
+    const { tasks } = this.state;
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+
+    this.setState({ tasks: updatedTasks });
+  }
+
   render() {
     const { tasks } = this.state;
 
@@ -28,7 +37,9 @@ class App extends Component {
       <div className="box">
         <FormTask onAdd={this.addTask} />
         <ol className="list">
-          {tasks.map((task) => <Task title={task.title} key={task.id} />)}
+          {
+          tasks.map((task) => <Task data={task} onRemove={this.removeTask} key={task.id} />)
+          }
         </ol>
       </div>
     );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { AiOutlinePlus } from 'react-icons/ai';
 import idGenerator from '../../lib/idGenerator';
+import './styles.css';
 
 class FormTask extends Component {
   constructor() {
@@ -28,8 +30,8 @@ class FormTask extends Component {
 
     return (
       <form onSubmit={(e) => this.handleSubmit(e, onAdd)}>
-        <input type="text" value={title} onChange={this.handleChange} />
-        <button type="submit">Add Task</button>
+        <input type="text" value={title} onChange={this.handleChange} placeholder="Add a new task" />
+        <button aria-label="add-button" type="submit"><AiOutlinePlus /></button>
       </form>
     );
   }
