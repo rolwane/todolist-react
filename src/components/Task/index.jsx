@@ -7,31 +7,20 @@ class Task extends Component {
   constructor() {
     super();
 
-    this.state = {
-      done: false,
-    };
-
-    this.handleCheck = this.handleCheck.bind(this);
-  }
-
-  handleCheck(event) {
-    if (event.target.checked) {
-      this.setState({ done: true });
-      return;
-    }
-
-    this.setState({ done: false });
+    this.state = {};
   }
 
   render() {
-    const { data, onRemove } = this.props;
-    const { id, title } = data;
-    const { done } = this.state;
+    const { data, onRemove, onFinish } = this.props;
+
+    const {
+      id, title, done, index,
+    } = data;
 
     return (
-      <li className="task-item">
-        <input type="checkbox" id={id} onChange={this.handleCheck} />
-        <label htmlFor={id} data-done={done}>
+      <li className="task-item" data-done={done}>
+        <input type="checkbox" id={id} onChange={() => onFinish(index)} checked={done} />
+        <label htmlFor={id}>
           {title}
         </label>
         <button type="button" className="btn-remove" aria-label="btn-remove" onClick={() => onRemove(id)}><FaTrash /></button>

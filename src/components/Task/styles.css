@@ -39,6 +39,7 @@
 [data-done=true] {
   text-decoration: line-through;
   color: #888;
+  order: 1;
 }
 
 .task-item input[type=checkbox] {

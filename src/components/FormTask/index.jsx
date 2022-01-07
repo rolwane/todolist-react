@@ -8,7 +8,7 @@ class FormTask extends Component {
   constructor() {
     super();
 
-    this.state = { id: null, title: '' };
+    this.state = { id: null, title: '', done: false };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
