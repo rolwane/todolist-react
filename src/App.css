@@ -8,9 +8,9 @@
   left: 50%;
   top: 100px;
   transform: translate3d(-50%, 0, 0);
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -20,4 +20,15 @@
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .box {
+    min-height: 100vh;
+    max-width: none;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    transform: translate3d(0, 0, 0);
+  }
 }

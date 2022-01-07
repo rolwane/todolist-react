@@ -4,6 +4,7 @@ import './App.css';
 // imported components
 import FormTask from './components/FormTask';
 import Task from './components/Task';
+import EmptyTask from './components/EmptyTask';
 
 class App extends Component {
   constructor() {
@@ -61,6 +62,7 @@ class App extends Component {
       <div className="box">
         <FormTask onAdd={this.addTask} />
         <ol className="list">
+          {tasks.length === 0 ? <EmptyTask /> : ''}
           {
           tasks.map((task, index) => (
             <Task
