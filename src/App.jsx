@@ -5,6 +5,7 @@ import './App.css';
 import FormTask from './components/FormTask';
 import Task from './components/Task';
 import EmptyTask from './components/EmptyTask';
+import ProgressBar from './components/ProgressBar';
 
 class App extends Component {
   constructor() {
@@ -74,6 +75,7 @@ class App extends Component {
           ))
           }
         </ol>
+        {tasks.length === 0 ? '' : <ProgressBar data={tasks} />}
       </div>
     );
   }

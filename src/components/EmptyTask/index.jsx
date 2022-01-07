@@ -5,7 +5,7 @@ class EmptyTask extends Component {
   constructor() {
     super();
 
-    this.setState({});
+    this.state = {};
   }
 
   render() {

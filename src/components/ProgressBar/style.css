@@ -1,0 +1,16 @@
+.progressbar {
+  height: 10px;
+  background-color: rgb(47, 193, 140);
+  transition: width 500ms ease;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

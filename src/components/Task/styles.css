@@ -34,6 +34,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 [data-done=true] {
@@ -45,17 +46,19 @@
 .task-item input[type=checkbox] {
   appearance: none;
   -webkit-appearance: none;
-  -ms-appearance: none;
+  -moz-appearance: none;
   width: 21px;
   height: 20px;
   margin-right: 10px;
   background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
   border-radius: 3px;
   position: relative;
 }
 
 .task-item input[type=checkbox]:checked {
-  background-color: #0072ff;
+  background-color: rgb(47, 193, 140);
 }
 
 .task-item input[type=checkbox]:checked::after {
